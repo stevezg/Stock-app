@@ -5,6 +5,7 @@ export default class Form extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      err: '',
       symbol: '',
       price: '',
       open: '',
@@ -18,6 +19,11 @@ export default class Form extends Component {
   }
   handleStockChange = e => {
     this.setState({ symbol: e.target.value.toUpperCase() })
+  }
+  stockIsValid = (stock) => {
+    if (typeof stock != String ){
+      throw new Error("stock is invalid")
+    }
   }
   onSubmit = async event => {
     event.preventDefault()
@@ -43,31 +49,38 @@ export default class Form extends Component {
   }
 
   getStockAsync = async name => {
-    let response = await fetch(
-      `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${name}&apikey=XOJSLIXCKGQBGHGX`
-    )
-    let data = await response.json()
-    return data
+    try {
+      let response = await fetch(
+        `https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=${name}&apikey=XOJSLIXCKGQBGHGX`
+      )
+      let data = await response.json()
+      return data
+    } catch (err) {
+      this.setState({ err: err.message })
+    }
   }
 
   render() {
     return (
-      <form>
-        <input
-          placeholder='Enter Stock'
-          value={this.state.symbol}
-          onChange={this.handleStockChange}
-        />
-        <br/>
-        <button
-          type='submit'
-          onClick={this.onSubmit}
-          value={this.state.symbol}
-          style={{ width: '140px' }}
-        >
-          Add New Stock
-        </button>
-      </form>
+      <div>
+        <form>
+          <input
+            placeholder='Enter Stock'
+            value={this.state.symbol}
+            onChange={this.handleStockChange}
+          />
+          <br />
+          <button
+            type='submit'
+            onClick={this.onSubmit}
+            value={this.state.symbol}
+            style={{ width: '140px' }}
+          >
+            Add New Stock
+          </button>
+        </form>
+        <p style={{ color: 'red' }}>{this.state.err}</p>
+      </div>
     )
   }
 }
