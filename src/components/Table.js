@@ -5,7 +5,7 @@ export default class Table extends Component {
     return (
       <div>
         <h2>Stocks</h2>
-        <table>
+        <table >
           <tbody>
             <tr>
               <th>Stock</th>

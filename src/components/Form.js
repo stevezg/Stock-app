@@ -28,8 +28,12 @@ export default class Form extends Component {
   onSubmit = async event => {
     event.preventDefault()
     this.setData()
-  }
+    console.log(event.target.value)
 
+  }
+  isEnabled = (stock) => {
+    return !(stock.length > 0)
+  }
   setData = () => {
     this.getStockAsync(this.state.symbol).then(data =>
       this.setState(
@@ -75,6 +79,7 @@ export default class Form extends Component {
             onClick={this.onSubmit}
             value={this.state.symbol}
             style={{ width: '140px' }}
+            disabled={this.isEnabled(this.state.symbol)}
           >
             Add New Stock
           </button>
