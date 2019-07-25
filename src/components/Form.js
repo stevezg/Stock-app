@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 // import apiKey from '../config/alphaVantage'
 
+
 export default class Form extends Component {
   constructor(props) {
     super(props)
@@ -16,9 +17,13 @@ export default class Form extends Component {
   handleStockChange = e => {
     this.setState({ symbol: e.target.value })
   }
-  onSubmit = event => {
+  onSubmit = async event => {
     event.preventDefault()
+    this.setData()
 
+  }
+
+  setData = () => {
     this.getStockAsync(this.state.symbol).then(data =>
       this.setState({
         price: data['Global Quote']['05. price'],
@@ -26,8 +31,7 @@ export default class Form extends Component {
         previousClose: data['Global Quote']['08. previous close'],
         volume: data['Global Quote']['06. volume'],
         changePercent: data['Global Quote']['10. change percent']
-      })
-      // console.log(data)
+      }, () => console.log(this.state))
     )
   }
 
