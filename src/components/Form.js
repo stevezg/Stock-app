@@ -20,36 +20,33 @@ export default class Form extends Component {
   handleStockChange = e => {
     this.setState({ symbol: e.target.value.toUpperCase() })
   }
-  stockIsValid = (stock) => {
-    if (typeof stock != String ){
-      throw new Error("stock is invalid")
-    }
-  }
+
+
   onSubmit = async event => {
     event.preventDefault()
     this.setData()
-    console.log(event.target.value)
-
   }
-  isEnabled = (stock) => {
-    return !(stock.length > 0)
+  isEnabled = stock => {
+    return !(stock.length > 0 && stock.length <= 5)
   }
   setData = () => {
-    this.getStockAsync(this.state.symbol).then(data =>
-      this.setState(
-        {
-          price: data['Global Quote']['05. price'],
-          open: data['Global Quote']['02. open'],
-          previousClose: data['Global Quote']['08. previous close'],
-          volume: data['Global Quote']['06. volume'],
-          change: data['Global Quote']['09. change'],
-          changePercent: data['Global Quote']['10. change percent'],
-          high: data['Global Quote']['03. high'],
-          low: data['Global Quote']['02. low']
-        },
-        () => this.props.updateStocks(this.state)
-      )
-    )
+    this.getStockAsync(this.state.symbol).then(data => {
+      if (data['Global Quote']['05. price']) {
+        this.setState(
+          {
+            price: data['Global Quote']['05. price'],
+            open: data['Global Quote']['02. open'],
+            previousClose: data['Global Quote']['08. previous close'],
+            volume: data['Global Quote']['06. volume'],
+            change: data['Global Quote']['09. change'],
+            changePercent: data['Global Quote']['10. change percent'],
+            high: data['Global Quote']['03. high'],
+            low: data['Global Quote']['02. low']
+          },
+          () => this.props.updateStocks(this.state)
+        )
+      }
+    })
   }
 
   getStockAsync = async name => {
