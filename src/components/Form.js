@@ -10,11 +10,14 @@ export default class Form extends Component {
       open: '',
       previousClose: '',
       volume: '',
-      changePercent: ''
+      change: '',
+      changePercent: '',
+      high: '',
+      low: ''
     }
   }
   handleStockChange = e => {
-    this.setState({ symbol: e.target.value })
+    this.setState({ symbol: e.target.value.toUpperCase() })
   }
   onSubmit = async event => {
     event.preventDefault()
@@ -29,7 +32,10 @@ export default class Form extends Component {
           open: data['Global Quote']['02. open'],
           previousClose: data['Global Quote']['08. previous close'],
           volume: data['Global Quote']['06. volume'],
-          changePercent: data['Global Quote']['10. change percent']
+          change: data['Global Quote']['09. change'],
+          changePercent: data['Global Quote']['10. change percent'],
+          high: data['Global Quote']['03. high'],
+          low: data['Global Quote']['02. low']
         },
         () => this.props.updateStocks(this.state)
       )
@@ -52,11 +58,12 @@ export default class Form extends Component {
           value={this.state.symbol}
           onChange={this.handleStockChange}
         />
+        <br/>
         <button
           type='submit'
           onClick={this.onSubmit}
           value={this.state.symbol}
-          style={{ width: '100px' }}
+          style={{ width: '140px' }}
         >
           Add New Stock
         </button>
