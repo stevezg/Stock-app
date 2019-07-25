@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 
 export default class Table extends Component {
+  handleClick = (e) => {
+    console.log("clicked");
+  }
   render() {
     return (
       <div>
@@ -15,7 +18,10 @@ export default class Table extends Component {
             </tr>
             {this.props.stocks.map((stock, i) => {
               return (
-                <tr key={i}>
+                <tr
+                  key={i}
+                  onClick={this.handleClick}
+                >
                   <td>{stock.symbol}</td>
                   <td>{stock.price}</td>
                   <td>{stock.change}</td>
