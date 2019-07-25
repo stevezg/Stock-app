@@ -3,37 +3,31 @@ import logo from './logo.svg'
 import Form from './components/Form'
 import './App.css'
 
-// async function getStockAsync(name) {
-//   let response = await fetch(url)
-//   let data = await response.json()
-//   return data
-// }
-// getStockAsync.then(data => console.log(data))
-function App() {
-  return (
-    <div className='App'>
-      <header className='App-header'>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Stock Quote App</p>
-        <Form/>
-        <h2>Stocks</h2>
 
-        {/* <table>
-          <tr>
-            <th>Company</th>
-            <th>Price</th>
-            <th>Volume</th>
-          </tr>
-          <tr>
-            <td>company1.name</td>
-            <td>compnay1.price</td>
-            <td>company1.volume</td>
-          </tr> */}
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {stocks: []}
+  }
 
-        {/* </table> */}
-      </header>
-    </div>
-  )
+  updateStocks = (stockObj) => {
+    this.setState({stocks: [...this.state.stocks, stockObj]})
+  }
+  render(){
+    return (
+      <div className='App'>
+        <header className='App-header'>
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>Stock Quote App</p>
+          <Form updateStocks={this.updateStocks}/>
+          <h2>Stocks</h2>
+          {this.state.stocks.map(stock=>{
+            return <p>Name: {stock.symbol} Price: {stock.price}</p>
+          })}
+        </header>
+      </div>
+    )
+  }
 }
 
 export default App
