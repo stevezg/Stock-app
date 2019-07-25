@@ -20,8 +20,6 @@ export default class Form extends Component {
   handleStockChange = e => {
     this.setState({ symbol: e.target.value.toUpperCase() })
   }
-
-
   onSubmit = async event => {
     event.preventDefault()
     this.setData()
@@ -40,15 +38,14 @@ export default class Form extends Component {
             volume: data['Global Quote']['06. volume'],
             change: data['Global Quote']['09. change'],
             changePercent: data['Global Quote']['10. change percent'],
-            high: data['Global Quote']['03. high'],
-            low: data['Global Quote']['02. low']
+            low: data['Global Quote']['04. low'],
+            high: data['Global Quote']['03. high']
           },
           () => this.props.updateStocks(this.state)
         )
       }
     })
   }
-
   getStockAsync = async name => {
     try {
       let response = await fetch(
@@ -60,7 +57,6 @@ export default class Form extends Component {
       this.setState({ err: err.message })
     }
   }
-
   render() {
     return (
       <div>
