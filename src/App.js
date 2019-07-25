@@ -16,9 +16,6 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>Stock Quote App</p>
         <Form/>
-
-
-
         <h2>Stocks</h2>
 
         {/* <table>
@@ -31,9 +28,9 @@ function App() {
             <td>company1.name</td>
             <td>compnay1.price</td>
             <td>company1.volume</td>
-          </tr>
+          </tr> */}
 
-        </table> */}
+        {/* </table> */}
       </header>
     </div>
   )
