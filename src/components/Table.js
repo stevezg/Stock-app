@@ -76,17 +76,10 @@ export default class Table extends Component {
                 <li>
                   Volume: {this.props.stocks[this.state.key].volume} shares
                 </li>
-<<<<<<< HEAD
                 <li>Open: <span className="bold" >{this.props.stocks[this.state.key].open}</span></li>
                 <li>High: <span className="bold" >{this.props.stocks[this.state.key].high}</span></li>
                 <li>Low: <span className="bold" >{this.props.stocks[this.state.key].low}</span></li>
                 <li>previousClose: <span className="bold" >{this.props.stocks[this.state.key].previousClose}</span></li>
-=======
-                <li>Open: {this.props.stocks[this.state.key].open}</li>
-                <li>High: {this.props.stocks[this.state.key].high}</li>
-                <li>Low: {this.props.stocks[this.state.key].low}</li>
-                <li>previousClose: {this.props.stocks[this.state.key].previousClose}</li>
->>>>>>> parent of b6e54ae... styling button
               </ul>
             </div>
           )}
