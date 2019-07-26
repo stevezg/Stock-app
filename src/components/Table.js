@@ -5,7 +5,6 @@ export default class Table extends Component {
     super(props)
     this.state = {
       moreInfo: false,
-
       key: 0
     }
   }
@@ -16,13 +15,12 @@ export default class Table extends Component {
     }
   }
   handleClick = i => {
-    this.setState({ key: i, moreInfo: true })
-
+    this.setState({ key: i, moreInfo: true,  })
   }
 
   handleToggle = () => {
     this.setState({
-      toggle: !this.state.toggle
+      moreInfo: !this.state.moreInfo
     })
   }
   render() {
@@ -61,7 +59,12 @@ export default class Table extends Component {
               <div style={{ display: 'inline-flex' }}>
                 <h3>More Info</h3>
                 <button
-                  className="toggleBtn"
+                  style={{
+                    height: '30px',
+                    marginTop: '20px',
+                    width: '100px',
+                    marginlLeft: '10px'
+                  }}
                   onClick={this.handleToggle}
                 >
                   Collapse
@@ -69,7 +72,7 @@ export default class Table extends Component {
               </div>
               <ul style={{ textAlign: 'left' }}>
                 <li>
-                  Volume: <span className="bold">{this.props.stocks[this.state.key].volume}</span>
+                  Volume: {this.props.stocks[this.state.key].volume} shares
                 </li>
                 <li>Open: <span className="bold" >{this.props.stocks[this.state.key].open}</span></li>
                 <li>High: <span className="bold" >{this.props.stocks[this.state.key].high}</span></li>
