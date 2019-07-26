@@ -1,6 +1,6 @@
 # Stock App
 
-[Link to deployed version](https://stevezg.github.io/Stock-app/ "Stock APP")
+[Link to deployed version](https://stevezg.github.io/stock-app/ "Stock APP")
 * Stock App Using React
 * Asynchronus Data Fetching
 * Test Suite
