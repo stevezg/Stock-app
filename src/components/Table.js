@@ -5,7 +5,6 @@ export default class Table extends Component {
     super(props)
     this.state = {
       moreInfo: false,
-
       key: 0
     }
   }
@@ -16,13 +15,12 @@ export default class Table extends Component {
     }
   }
   handleClick = i => {
-    this.setState({ key: i, moreInfo: true })
-
+    this.setState({ key: i, moreInfo: true,  })
   }
 
   handleToggle = () => {
     this.setState({
-      toggle: !this.state.toggle
+      moreInfo: !this.state.moreInfo
     })
   }
   render() {
