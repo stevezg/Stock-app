@@ -5,6 +5,7 @@ export default class Table extends Component {
     super(props)
     this.state = {
       moreInfo: false,
+
       key: 0
     }
   }
@@ -20,7 +21,7 @@ export default class Table extends Component {
 
   handleToggle = () => {
     this.setState({
-      moreInfo: !this.state.moreInfo
+      toggle: !this.state.toggle
     })
   }
   render() {
