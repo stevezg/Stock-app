@@ -20,6 +20,7 @@ class App extends React.Component {
           <img src={logo} className='App-logo' alt='logo' />
           <p>Stock Quote App</p>
           <Form updateStocks={this.updateStocks} />
+          <p>Click for more details</p>
           <Table stocks={this.state.stocks} />
         </header>
       </div>

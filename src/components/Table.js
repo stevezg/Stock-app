@@ -15,7 +15,7 @@ export default class Table extends Component {
     }
   }
   handleClick = i => {
-    this.setState({ key: i, moreInfo: true,  })
+    this.setState({ key: i, moreInfo: true })
   }
 
   handleToggle = () => {
@@ -25,10 +25,10 @@ export default class Table extends Component {
   }
   render() {
     return (
-      <div className="container">
+      <div className='container'>
         <div>
           <h2>Stocks</h2>
-          <table>
+          <table className="table"  >
             <tbody>
               <tr>
                 <th>Stock</th>
@@ -58,26 +58,41 @@ export default class Table extends Component {
             <div>
               <div style={{ display: 'inline-flex' }}>
                 <h3>More Info</h3>
-                <button
-                  style={{
-                    height: '30px',
-                    marginTop: '20px',
-                    width: '100px',
-                    marginlLeft: '10px'
-                  }}
-                  onClick={this.handleToggle}
-                >
+                <button className='toggleBtn' onClick={this.handleToggle}>
                   Collapse
                 </button>
               </div>
               <ul style={{ textAlign: 'left' }}>
                 <li>
-                  Volume: {this.props.stocks[this.state.key].volume} shares
+                  Volume:
+                  <span className='bold'>
+                    {this.props.stocks[this.state.key].volume}
+                  </span>
                 </li>
-                <li>Open: <span className="bold" >{this.props.stocks[this.state.key].open}</span></li>
-                <li>High: <span className="bold" >{this.props.stocks[this.state.key].high}</span></li>
-                <li>Low: <span className="bold" >{this.props.stocks[this.state.key].low}</span></li>
-                <li>previousClose: <span className="bold" >{this.props.stocks[this.state.key].previousClose}</span></li>
+                <li>
+                  Open:
+                  <span className='bold'>
+                    {this.props.stocks[this.state.key].open}
+                  </span>
+                </li>
+                <li>
+                  High:
+                  <span className='bold'>
+                    {this.props.stocks[this.state.key].high}
+                  </span>
+                </li>
+                <li>
+                  Low:
+                  <span className='bold'>
+                    {this.props.stocks[this.state.key].low}
+                  </span>
+                </li>
+                <li>
+                  previousClose:
+                  <span className='bold'>
+                    {this.props.stocks[this.state.key].previousClose}
+                  </span>
+                </li>
               </ul>
             </div>
           )}
