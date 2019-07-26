@@ -44,6 +44,9 @@ export default class Form extends Component {
           () => this.props.updateStocks(this.state)
         )
       }
+      else {
+        this.setState({err:"please enter a valid stock"})
+      }
     })
   }
   getStockAsync = async name => {
@@ -77,7 +80,7 @@ export default class Form extends Component {
             Add New Stock
           </button>
         </form>
-        <p style={{ color: 'red' }}>{this.state.err}</p>
+        <p style={{ color: 'goldenrod' }}>{this.state.err}</p>
       </div>
     )
   }
