@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/stock-app/static/css/main.2cce8147.chunk.css",
-    "main.js": "/stock-app/static/js/main.4623ad79.chunk.js",
-    "main.js.map": "/stock-app/static/js/main.4623ad79.chunk.js.map",
+    "main.css": "/stock-app/static/css/main.f71725bf.chunk.css",
+    "main.js": "/stock-app/static/js/main.f71a7eac.chunk.js",
+    "main.js.map": "/stock-app/static/js/main.f71a7eac.chunk.js.map",
     "runtime~main.js": "/stock-app/static/js/runtime~main.64d052a9.js",
     "runtime~main.js.map": "/stock-app/static/js/runtime~main.64d052a9.js.map",
     "static/js/2.4006e09b.chunk.js": "/stock-app/static/js/2.4006e09b.chunk.js",
     "static/js/2.4006e09b.chunk.js.map": "/stock-app/static/js/2.4006e09b.chunk.js.map",
     "index.html": "/stock-app/index.html",
-    "precache-manifest.b0c3b8d617e7ae8804f96d499f10ab24.js": "/stock-app/precache-manifest.b0c3b8d617e7ae8804f96d499f10ab24.js",
+    "precache-manifest.a061af0266bf027deffe754d1edfc685.js": "/stock-app/precache-manifest.a061af0266bf027deffe754d1edfc685.js",
     "service-worker.js": "/stock-app/service-worker.js",
-    "static/css/main.2cce8147.chunk.css.map": "/stock-app/static/css/main.2cce8147.chunk.css.map",
+    "static/css/main.f71725bf.chunk.css.map": "/stock-app/static/css/main.f71725bf.chunk.css.map",
     "static/media/logo.svg": "/stock-app/static/media/logo.5d5d9eef.svg"
   }
 }
